@@ -20,7 +20,7 @@ export class GridComponent implements OnInit {
       for(var ii = 0; ii < 12; ii ++){
         var newTile: Tile = new Tile();
         var rng = Math.floor(Math.random() * 10) + 1;
-        if(rng > 6){
+        if(rng > 7){
           newTile.bomb = true;
         }
         rows.push(newTile);
@@ -68,7 +68,20 @@ export class GridComponent implements OnInit {
     }
   }
 
-  onClick(tile: Tile){
-    alert("HEY");
+  onClick(tile){
+    console.log("TESTING");
+    if(tile.clicked === false){
+      tile.clicked = true;
+    }
+  }
+
+  tileColor(tile) {
+    console.log("TEST");
+    if (tile.clicked === false){
+      return "notClicked";
+    }
+    else {
+      return "isClicked"
+    }
   }
 }
