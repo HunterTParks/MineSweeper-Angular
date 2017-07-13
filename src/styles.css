@@ -7,11 +7,14 @@
   border: 1px solid black;
   height: 72px;
   width: 72px;
+  padding: 0;
 }
+
 
 #number {
   color: red;
-  font-size: 20px;
+  font-size: 50px;
+  margin-left: 25%;
 }
 
 .notClicked {
@@ -21,4 +24,23 @@
 
 .isClicked {
   color: grey;
+}
+
+.markbomb {
+  color: Silver;
+}
+
+.test {
+  position: relative;
+}
+
+.boom {
+  background-image: url("../src/bomb.png");
+  background-size: cover;
+  height: 72px;
+  width: 91px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
 }

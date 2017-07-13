@@ -73,6 +73,9 @@ export class GridComponent implements OnInit {
     if(tile.clicked === false){
       tile.clicked = true;
     }
+    if(tile.bomb === true){
+      alert("game over");
+    }
   }
 
   tileColor(tile) {
@@ -80,8 +83,16 @@ export class GridComponent implements OnInit {
     if (tile.clicked === false){
       return "notClicked";
     }
-    else {
-      return "isClicked"
+    if (tile.clicked === true && tile.bomb === false){
+      return "isClicked";
     }
+    if (tile.clicked === true && tile.bomb == true){
+      return "boom";
+    }
+
+  }
+
+  markBomb(tile) {
+    return false;
   }
 }
