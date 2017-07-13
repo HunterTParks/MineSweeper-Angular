@@ -1,7 +1,7 @@
 <div class="game-board">
   <div *ngFor="let row of minefield.columns">
-    <div (click) = "onClick()" *ngFor="let tile of row" style = "border: 1px dotted black" class = "tile col-md-1">
-      {{tile.bomb}}
+    <div (click) = "onClick()" *ngFor="let tile of row" class = "tile col-md-1">
+      {{tile.bomb}}<span id="number">{{tile.count}}</span>
     </div>
   </div>
 </div>

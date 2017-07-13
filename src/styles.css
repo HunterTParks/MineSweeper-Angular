@@ -2,6 +2,17 @@
 
 }
 .game-board {
-  width:440px;
+  width:868px;
   margin-left: 25%;
+}
+
+.col-md-1 {
+  border: 1px solid black;
+  height: 72px;
+  width: 72px;
+}
+
+#number {
+  color: red;
+  font-size: 20px;
 }

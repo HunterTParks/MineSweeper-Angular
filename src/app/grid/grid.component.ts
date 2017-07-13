@@ -28,42 +28,41 @@ export class GridComponent implements OnInit {
       this.minefield.columns.push(rows);
     }
     console.log(this.minefield);
-    for(var j = 0; j <= 12; j++){
-      for(var jj = 0; jj <= 12; jj++){
+    for(var j = 0; j < 12; j++){
+      for(var jj = 0; jj < 12; jj++){
         if(this.minefield.columns[j][jj].bomb === true){
-          if(this.minefield.columns[j - 1] === undefined || this.minefield.columns[j - 1][jj - 1] === undefined){
-          } else {
-            this.minefield.columns[j - 1][jj - 1].count++;
-          }
           if(this.minefield.columns[j - 1] === undefined){
           } else {
+            if(this.minefield.columns[j - 1][jj - 1] === undefined){
+            } else {
+              this.minefield.columns[j - 1][jj - 1].count++;
+            }
             this.minefield.columns[j - 1][jj].count++;
-          }
-          if (this.minefield.columns[j - 1] === undefined || this.minefield.columns[j - 1][jj +1] === undefined){
-          } else {
-            this.minefield.columns[j - 1][jj + 1].count++;
+            if(this.minefield.columns[j - 1][jj + 1] === undefined){
+            } else {
+              this.minefield.columns[j - 1][jj + 1].count++;
+            }
           }
           if (this.minefield.columns[j][jj - 1] === undefined){
-          }else {
+          } else {
             this.minefield.columns[j][jj - 1].count++;
           }
-          if (this.minefield.columns[j][jj + 1] === undefined) {
+          if (this.minefield.columns[j][jj + 1] === undefined){
           } else {
             this.minefield.columns[j][jj + 1].count++;
           }
-          if (this.minefield.columns[j + 1] === undefined || this.minefield.columns[j + 1][jj - 1] === undefined) {
+          if(this.minefield.columns[j + 1] === undefined){
           } else {
-            this.minefield.columns[j + 1][jj - 1].count++;
-          }
-          if (this.minefield.columns[j + 1] === undefined) {
-          } else {
+            if(this.minefield.columns[j + 1][jj - 1] === undefined){
+            } else {
+              this.minefield.columns[j + 1][jj - 1].count++;
+            }
             this.minefield.columns[j + 1][jj].count++;
+            if(this.minefield.columns[j + 1][jj + 1] === undefined){
+            } else {
+              this.minefield.columns[j + 1][jj + 1].count++;
+            }
           }
-          if (this.minefield.columns[j + 1] === undefined || this.minefield.columns[j + 1][jj + 1] === undefined){
-          }else {
-            this.minefield.columns[j + 1][jj + 1].count++;
-          }
-
         }
       }
     }
