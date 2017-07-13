@@ -20,7 +20,7 @@ export class GridComponent implements OnInit {
       for(var ii = 0; ii < 12; ii ++){
         var newTile: Tile = new Tile();
         var rng = Math.floor(Math.random() * 10) + 1;
-        if(rng > 7){
+        if(rng > 9){
           newTile.bomb = true;
         }
         rows.push(newTile);
@@ -92,7 +92,64 @@ export class GridComponent implements OnInit {
 
   }
 
-  markBomb(tile) {
-    return false;
+  checkForZeros(){
+    for(var j = 0; j < 12; j++){
+      for(var jj = 0; jj < 12; jj++){
+        if(this.minefield.columns[j][jj].bomb === false){
+          if(this.minefield.columns[j - 1] === undefined){
+          } else {
+            if(this.minefield.columns[j - 1][jj - 1] === undefined){
+            } else {
+              if(this.minefield.columns[j - 1][jj - 1].count === 0){
+                this.minefield.columns[j - 1][jj - 1].clicked = true;
+              }
+            }
+            if(this.minefield.columns[j - 1][jj].count === 0){
+              this.minefield.columns[j - 1][jj].clicked = true;
+            }
+            if(this.minefield.columns[j - 1][jj + 1] === undefined){
+            } else {
+              if(this.minefield.columns[j - 1][jj + 1].count === 0){
+                this.minefield.columns[j - 1][jj + 1].clicked = true;
+              }
+            }
+          }
+          if (this.minefield.columns[j][jj - 1] === undefined){
+          } else {
+            if(this.minefield.columns[j][jj - 1].count === 0){
+              this.minefield.columns[j][jj - 1].clicked = true;
+            }
+          }
+          if (this.minefield.columns[j][jj + 1] === undefined){
+          } else {
+            if(this.minefield.columns[j][jj + 1].count === 0){
+              this.minefield.columns[j][jj + 1].clicked = true;
+            }
+          }
+          if(this.minefield.columns[j + 1] === undefined){
+          } else {
+            if(this.minefield.columns[j + 1][jj - 1] === undefined){
+            } else {
+              if(this.minefield.columns[j + 1][jj - 1].count === 0){
+                this.minefield.columns[j + 1][jj - 1].clicked = true;
+              }
+            }
+            if(this.minefield.columns[j + 1][jj].count === 0){
+              this.minefield.columns[j + 1][jj].clicked = true;
+            }
+            if(this.minefield.columns[j + 1][jj + 1] === undefined){
+            } else {
+              if(this.minefield.columns[j + 1][jj + 1].count === 0){
+                this.minefield.columns[j + 1][jj + 1].clicked = true;
+              }
+            }
+          }
+        }
+      }
+    }
   }
+
+  // markBomb(tile) {
+  //   return false;
+  // }
 }
